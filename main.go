@@ -13,7 +13,11 @@ const url = "http://deviceshifu-plate-reader.deviceshifu.svc.cluster.local/get_m
 func main() {
 	client := &http.Client{}
 
-	resp, _ := client.Get(url)
+	resp, err := client.Get(url)
+	if err != nil {
+		fmt.Errorf("Error: %s", err)
+		select {}
+	}
 	defer resp.Body.Close()
 
 	body, _ := ioutil.ReadAll(resp.Body)
