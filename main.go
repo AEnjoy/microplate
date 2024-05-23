@@ -34,4 +34,5 @@ func main() {
 	if count != 0 {
 		fmt.Printf("%.2f", value/float64(count))
 	}
+	select {}
 }

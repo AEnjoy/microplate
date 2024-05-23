@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: cli-test
+  labels:
+    app: go
+    version: v1
+spec:
+  containers:
+    - name: cli-test
+      image: leigg/hellok8s:v1
