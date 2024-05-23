@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"io/ioutil"
+	"io"
 	"net/http"
 	"strconv"
 	"strings"
@@ -19,7 +19,7 @@ func main() {
 		if err != nil {
 			fmt.Errorf("error: %s\n", err)
 		} else {
-			body, _ := ioutil.ReadAll(resp.Body)
+			body, _ := io.ReadAll(resp.Body)
 			str := strings.Split(string(body), "\n")
 			count := 0
 			value := 0.0
