@@ -3,7 +3,7 @@ FROM golang:1.22-alpine AS builder
 # 缓存依赖
 WORKDIR /go/cache
 COPY go.mod .
-COPY go.sum .
+# COPY go.sum .
 RUN GOPROXY=https://goproxy.cn,direct go mod tidy
 
 WORKDIR /build
