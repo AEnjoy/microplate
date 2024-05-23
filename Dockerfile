@@ -10,7 +10,7 @@ WORKDIR /build
 COPY . .
 
 # 关闭cgo的原因：使用了多阶段构建，go程序的编译环境和运行环境不同，不关就无法运行go程序
-RUN GOOS=linux CGO_ENABLED=0 GOARCH=amd64 GO111MODULE=auto go build . -o main -ldflags "-w -extldflags -static"
+RUN GOOS=linux CGO_ENABLED=0 GOARCH=amd64 GO111MODULE=auto go build -ldflags "-w -extldflags -static" -o main
 
 #FROM scratch as prod
 FROM alpine as prod
